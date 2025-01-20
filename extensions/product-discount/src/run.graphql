@@ -1,0 +1,31 @@
+query RunInput {
+  cart {
+    lines {
+      id
+      quantity
+      cost {
+        totalAmount {
+          amount
+          currencyCode
+        }
+      }
+      taxRateAttribute: attribute(key: "taxRate") {
+        value
+      }
+      vatIdAttribute: attribute(key: "vatId") {
+        value
+      }
+      merchandise {
+        ... on ProductVariant {
+          id
+          title
+          product {
+            id
+            vendor
+            productType
+          }
+        }
+      }
+    }
+  }
+}

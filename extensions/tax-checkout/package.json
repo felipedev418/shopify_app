@@ -1,0 +1,18 @@
+{
+  "name": "tax-checkout",
+  "private": true,
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@shopify/checkout-ui-extensions": "^0.27.3",
+    "@shopify/react-graphql": "^10.3.3",
+    "@shopify/ui-extensions": "2024.10.x",
+    "@shopify/ui-extensions-react": "2024.10.x",
+    "axios": "^1.7.9",
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "react-reconciler": "0.29.0"
+  }
+}

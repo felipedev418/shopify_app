@@ -1,0 +1,6 @@
+{
+  "name": "Discount function settings",
+  "description": "Offer a discount on all collections except the ones selected",
+  "discountPercentage": "Discount percentage",
+  "addCollections": "Add collections"
+}
