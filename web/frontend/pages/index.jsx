@@ -32,45 +32,45 @@ const COUNTRY_CODE_QUERY = `
 `;
 
 export default function HomePage() {
-  // const app = useAppBridge();
-  // const [taxRate, setTaxRate] = useState(0);
+  const app = useAppBridge();
+  const [taxRate, setTaxRate] = useState(0);
 
-  // // Function to fetch and cache tax rate
-  // const fetchAndCacheTaxRate = async (countryCode) => {
-  //   try {
-  //     const response = await fetch(`/api/checkout/tax-rates/${countryCode}`);
-  //     const data = await response.json();
+  // Function to fetch and cache tax rate
+  const fetchAndCacheTaxRate = async (countryCode) => {
+    try {
+      const response = await fetch(`/api/checkout/tax-rates/${countryCode}`);
+      const data = await response.json();
 
-  //     if (data.taxRate) {
-  //       // Cache the tax rate
-  //       localStorage.setItem("currentTaxRate", data.taxRate);
-  //       setTaxRate(data.taxRate);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching tax rate:", error);
-  //   }
-  // };
+      if (data.taxRate) {
+        // Cache the tax rate
+        localStorage.setItem("currentTaxRate", data.taxRate);
+        setTaxRate(data.taxRate);
+      }
+    } catch (error) {
+      console.error("Error fetching tax rate:", error);
+    }
+  };
 
-  // // Check for selected country and fetch tax rate
-  // useEffect(() => {
-  //   const checkAndFetchTaxRate = async () => {
-  //     // const selectedCountryCode = localStorage.getItem("selectedCountryCode");
-  //     const selectedCountryCode = sessionStorage.getItem("countryCode");
-  //     console.log(selectedCountryCode, "selectedCountryCode");
+  // Check for selected country and fetch tax rate
+  useEffect(() => {
+    const checkAndFetchTaxRate = async () => {
+      // const selectedCountryCode = localStorage.getItem("selectedCountryCode");
+      const selectedCountryCode = sessionStorage.getItem("countryCode");
+      console.log(selectedCountryCode, "selectedCountryCode");
 
-  //     if (selectedCountryCode) {
-  //       await fetchAndCacheTaxRate(selectedCountryCode);
-  //     }
-  //   };
+      if (selectedCountryCode) {
+        await fetchAndCacheTaxRate(selectedCountryCode);
+      }
+    };
 
-  //   // Initial check
-  //   checkAndFetchTaxRate();
+    // Initial check
+    checkAndFetchTaxRate();
 
-  //   // Set up interval to check periodically
-  //   const interval = setInterval(checkAndFetchTaxRate, 5000);
+    // Set up interval to check periodically
+    const interval = setInterval(checkAndFetchTaxRate, 5000);
 
-  //   return () => clearInterval(interval);
-  // }, []);
+    return () => clearInterval(interval);
+  }, []);
 
   const { t } = useTranslation();
   return (
